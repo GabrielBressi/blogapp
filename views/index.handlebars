@@ -1,0 +1,67 @@
+<style>
+    .jumbotron {
+        background: #cecece;
+        padding: 15px;
+        border-radius: 6px;
+    }
+</style>
+
+<div class="jumbotron mt-4">
+  <h1 class="display-4">Bem vindo ao Blog do Node</h1>
+  <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ut, minima nobis eveniet sequi velit, aut mollitia quia sunt sapiente non quos labore debitis deleniti magni tenetur possimus culpa id..</p>
+  <hr class="my-4">
+  <p class="lead">Ele usa classes utilitárias para tipografia e espaçamento de conteúdo, dentro do maior container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Crie uma conta</a>
+</div>
+
+<hr>
+
+<h2>Postagens recentes:</h2>
+
+{{#each postagens}}
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h3>{{titulo}}</h3>
+        <p>{{descricao}}</p>
+        <a href="/postagem/{{slug}}"><button class="btn btn-success">Leia mais</button></a>
+        <hr>
+        <small>Categoria: {{categoria.nome}}</small><br>
+        <small class="today">Data de publicação: {{data}}</small>
+    </div>
+</div>
+
+{{else}}
+<h5>Nenhuma postagem</h5>
+
+{{/each}}
+
+<script>
+    var today =  document.querySelector("small.today")
+    var dt = new Date();
+    var dia = dt.getDate();
+    var diasem = dt.getDay();
+    var mes = dt.getMonth();
+    var ano = dt.getFullYear();
+
+
+switch(diasem) {
+    case 0 : diasem = "Domingo"
+    break
+    case 1 : diasem = "Segunda-Feira"
+    break
+    case 2 : diasem = "Terça-Feira"
+    break
+    case 3 : diasem = "Quarta-Feira"
+    break
+    case 4 : diasem = "Quinta-Feira"
+    break
+    case 5 : diasem = "Sexta-Feira"
+    break
+    case 6 : diasem = "Sábado"
+    break
+}
+    var now = (diasem + " , " + dia + " de " + mes + " de " + ano)
+
+    today.innerHTML = now
+</script>

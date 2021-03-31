@@ -1,0 +1,45 @@
+<style>
+    .card {
+        padding: 10px;
+    }
+</style>
+
+<div class="card">
+    <h1>{{postagem.titulo}}</h1>
+    <hr>
+    <small class="today">Data de publicação: {{postagem.data}}</small><br>
+    <hr>
+    {{postagem.conteudo}}
+</div>
+
+<script>
+   var today =  document.querySelector("small.today")
+
+
+var dt = new Date();
+var dia = dt.getDate();
+var diasem = dt.getDay();
+var mes = dt.getMonth();
+var ano = dt.getFullYear();
+
+switch(diasem) {
+    case 0 : "Domingo"
+    break
+    case 1 : "Segunda-Feira"
+    break
+    case 2 : "Terça-Feira"
+    break
+    case 3 : "Quarta-Feira"
+    break
+    case 4 : "Quinta-Feira"
+    break
+    case 5 : "Sexta-Feira"
+    break
+    case 6 : "Sábado"
+    break
+}
+    var now = (diasem +", " + dia + "de " + mes + " de " + ano)
+
+    today.innerHTML = now
+</script>
+    
